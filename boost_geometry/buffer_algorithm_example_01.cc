@@ -1,7 +1,7 @@
 #include <boost/geometry.hpp>
 #include <boost/geometry/geometries/point_xy.hpp>
 #include <boost/geometry/geometries/geometries.hpp>
-
+#include <iostream>
 
 int main(void)
   {
@@ -50,6 +50,7 @@ int main(void)
                 distance_strategy, side_strategy,
                 join_strategy, end_strategy, circle_strategy);
 
+    std::cout << "numPolygons= " << result.size() << std::endl;
 
     return 0;
   }

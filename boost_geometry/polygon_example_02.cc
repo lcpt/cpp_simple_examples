@@ -2,6 +2,7 @@
 #include <boost/geometry/geometries/multi_polygon.hpp>
 #include <boost/geometry/geometries/point_xy.hpp>
 #include <iostream>
+#include <fstream>
 
 int main(void)
   {
@@ -27,4 +28,13 @@ int main(void)
 	const double y = boost::geometry::get<1>(*it);
 	std::cout << "x= " << x << " y= " << y << std::endl;
       }
+    
+    std::ofstream svg("polygon_example_02.svg");
+    
+    std::ostringstream out;
+    out << std::fixed << std::setprecision(6) << boost::geometry::wkt(poly);
+
+    auto str = out.str();
+    svg << str << std::endl;
+    svg.close();    
   }
