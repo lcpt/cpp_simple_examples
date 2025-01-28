@@ -5,8 +5,8 @@ void eigen_decomposition_3x3(const double A[3][3], double V[3][3], double d[3])
   {
     Eigen::Matrix3d AA;
     AA << A[0][0], A[0][1], A[0][2],
-      A[1][0], A[1][1], A[1][1],
-      A[2][0], A[2][1], A[2][1];
+          A[1][0], A[1][1], A[1][2],
+          A[2][0], A[2][1], A[2][2];
     Eigen::SelfAdjointEigenSolver<Eigen::Matrix3d> eigensolver(AA);
     if(eigensolver.info() != Eigen::Success)
       abort();
@@ -17,12 +17,15 @@ void eigen_decomposition_3x3(const double A[3][3], double V[3][3], double d[3])
 	const double lambda1= eigenvalues.col(0)[0];
 	const double lambda2= eigenvalues.col(0)[1];
 	const double lambda3= eigenvalues.col(0)[2];
+	
 	const double v1x= eigenvectors(0,0);
 	const double v1y= eigenvectors(1,0);
 	const double v1z= eigenvectors(2,0);
+	
 	const double v2x= eigenvectors(0,1);
 	const double v2y= eigenvectors(1,1);
 	const double v2z= eigenvectors(2,1);
+	
 	const double v3x= eigenvectors(0,2);
 	const double v3y= eigenvectors(1,2);
 	const double v3z= eigenvectors(2,2);
