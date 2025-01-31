@@ -3,3 +3,6 @@ segment_intersection
 segments_to_polyline
 AABB_triangle_3_example
 box_d_do_intersect_polylines
+minimum_enclosing_rectangle_2
+minimum_enclosing_strip_2
+
